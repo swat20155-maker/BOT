@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Ahmed — Developer & Creator. Personal Profile.">
+    <meta name="theme-color" content="#7c3aed">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>Ahmed — Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="mesh-orb mesh-orb--1"></div>
+        <div class="mesh-orb mesh-orb--2"></div>
+        <div class="mesh-orb mesh-orb--3"></div>
+        <div class="mesh-orb mesh-orb--4"></div>
+    </div>
+    <div class="bg-noise" aria-hidden="true"></div>
+
+    <!-- Theme Switcher -->
+    <button class="fab fab--theme" id="themeFab" onclick="toggleThemeMenu()" title="Change Theme"
+        aria-label="Change Theme">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+    </button>
+
+    <!-- Theme Menu -->
+    <div class="theme-menu" id="themeMenu">
+        <div class="theme-menu-header">
+            <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                </svg> Theme</h3>
+            <button class="theme-menu-close" onclick="toggleThemeMenu()" aria-label="Close theme menu">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <div class="theme-options">
+            <div class="theme-option" data-theme="default" onclick="changeTheme('default')">
+                <div class="theme-swatch default-swatch"></div>
+                <span>Violet</span>
+            </div>
+            <div class="theme-option" data-theme="blue" onclick="changeTheme('blue')">
+                <div class="theme-swatch blue-swatch"></div>
+                <span>Ocean</span>
+            </div>
+            <div class="theme-option" data-theme="green" onclick="changeTheme('green')">
+                <div class="theme-swatch green-swatch"></div>
+                <span>Emerald</span>
+            </div>
+            <div class="theme-option" data-theme="red" onclick="changeTheme('red')">
+                <div class="theme-swatch red-swatch"></div>
+                <span>Rose</span>
+            </div>
+            <div class="theme-option" data-theme="orange" onclick="changeTheme('orange')">
+                <div class="theme-swatch orange-swatch"></div>
+                <span>Sunset</span>
+            </div>
+            <div class="theme-option" data-theme="dark" onclick="changeTheme('dark')">
+                <div class="theme-swatch dark-swatch"></div>
+                <span>Mono</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Stories Section -->
+        <section class="story-section" id="storySection">
+            <div class="story-content">
+                <div class="story-header"></div>
+                <div class="stories-container" id="storiesContainer">
+                    <!-- Stories loaded dynamically -->
+                </div>
+                <button class="story-nav story-nav--left" id="storyNavLeft" onclick="scrollStories('left')"
+                    aria-label="Scroll stories left">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                </button>
+                <button class="story-nav story-nav--right" id="storyNavRight" onclick="scrollStories('right')"
+                    aria-label="Scroll stories right">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Profile Hero -->
+        <section class="hero" id="profileHero">
+            <div class="profile-container" id="profileContainer">
+                <!-- Orbital Rings -->
+                <div class="orbit orbit--1" aria-hidden="true"></div>
+                <div class="orbit orbit--2" aria-hidden="true"></div>
+
+                <div class="profile-ring">
+                    <div class="profile-frame">
+                        <img src="https://xatimg.com/image/3fcLEvUDbIIe.jpg" alt="Ahmed — Profile Picture"
+                            class="profile-pic" id="profilePic">
+                        <div class="profile-shine" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <!-- Status Indicator -->
+                <div class="status-badge" id="statusIndicator">
+                    <div class="status-dot" aria-label="Online status"></div>
+                </div>
+
+                <!-- Particles -->
+                <div class="particles" id="particles" aria-hidden="true"></div>
+            </div>
+
+            <!-- Username -->
+            <h1 class="username" id="username">Ahmed</h1>
+            <!--            <p class="tagline">Developer & Creator</p>-->
+
+            <!-- Social Links -->
+            <div class="social-row">
+                <a href="https://www.facebook.com/ahmed.s6yed/" target="_blank" rel="noopener noreferrer"
+                    class="social-btn" aria-label="Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://github.com/iilemoz" target="_blank" rel="noopener noreferrer" class="social-btn"
+                    aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://forum.xat.com/profile/63602/" target="_blank" rel="noopener noreferrer"
+                    class="social-btn" aria-label="Forum">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                    <span>Forum</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Admin FAB -->
+    <button class="fab fab--admin" id="adminFab" onclick="handleGearClick()" title="Admin Settings"
+        aria-label="Admin Settings">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </svg>
+    </button>
+
+    <!-- Story Modal -->
+    <div class="modal" id="storyModal">
+        <div class="modal-content modal-content--form">
+            <div class="story-modal-content-form">
+                <button class="modal-close story-modal-close" onclick="closeStoryModal()" aria-label="Close">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+                <h3 class="modal-title">Add New Story</h3>
+                <form class="story-form" id="storyForm">
+                    <div class="form-group">
+                        <label class="form-label">Story Title (optional)</label>
+                        <input type="text" class="form-input" id="storyTitle" placeholder="Enter story title...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Story Content (optional)</label>
+                        <textarea class="form-input form-textarea" id="storyContent"
+                            placeholder="Share your story..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Story Image (optional)</label>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <input type="file" id="storyImageFile" accept="image/*" style="display: none;">
+                            <button type="button" onclick="document.getElementById('storyImageFile').click()"
+                                class="btn btn--outline">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="17 8 12 3 7 8" />
+                                    <line x1="12" y1="3" x2="12" y2="15" />
+                                </svg>
+                                Upload Image
+                            </button>
+                            <span id="imageFileName" class="file-name"></span>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <label class="form-label" style="font-size: 0.85rem;">Or use Image URL:</label>
+                            <input type="url" class="form-input" id="storyImage"
+                                placeholder="https://example.com/image.jpg">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Story Video (optional)</label>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <input type="file" id="storyVideoFile" accept="video/*" style="display: none;">
+                            <button type="button" onclick="document.getElementById('storyVideoFile').click()"
+                                class="btn btn--outline">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="17 8 12 3 7 8" />
+                                    <line x1="12" y1="3" x2="12" y2="15" />
+                                </svg>
+                                Upload Video
+                            </button>
+                            <span id="videoFileName" class="file-name"></span>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <label class="form-label" style="font-size: 0.85rem;">Or use Video URL:</label>
+                            <input type="url" class="form-input" id="storyVideo"
+                                placeholder="https://www.youtube.com/watch?v=... or direct video URL">
+                            <small
+                                style="color: var(--text-muted); font-size: 0.8rem; margin-top: 5px; display: block;">
+                                Supports YouTube, YouTube Shorts, and direct video URLs
+                            </small>
+                        </div>
+                    </div>
+                    <!-- Thumbnail Generation Status -->
+                    <div class="form-group" id="thumbnailGenerationStatus"
+                        style="display: none; padding: 12px; border-radius: 12px; background: var(--glass-bg); border: 1px solid var(--glass-border);">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                            <span id="thumbnailStatusText" style="color: var(--text-primary);">Generating thumbnail from
+                                video...</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full story-form-submit">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg>
+                        Share Story
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="modal admin-dashboard" id="adminDashboard" style="display: none;">
+        <div class="dashboard-container">
+            <div class="dashboard-container-content">
+                <div class="dashboard-header">
+                    <h2>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        Admin Dashboard
+                    </h2>
+                    <div class="dashboard-header-actions">
+                        <button class="modal-close dashboard-logout" onclick="showLogoutConfirm()" title="Logout"
+                            aria-label="Logout">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                <polyline points="16 17 21 12 16 7" />
+                                <line x1="21" y1="12" x2="9" y2="12" />
+                            </svg>
+                        </button>
+                        <button class="modal-close dashboard-close" onclick="toggleDashboard()"
+                            aria-label="Close dashboard">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="profile-settings"
+                    style="margin-bottom: 24px; padding: 24px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); border-radius: 16px;">
+                    <h3
+                        style="margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; color: var(--text-primary);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Profile Picture Settings
+                    </h3>
+                    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+                        <img src="https://xatimg.com/image/mO5k7dwmDweI.jpg" id="dashboardProfilePic"
+                            alt="Current Profile"
+                            style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-primary);">
+                        <div style="flex: 1; min-width: 200px;">
+                            <input type="url" id="profilePicUrlInput" class="form-input"
+                                placeholder="Enter image link (https://...)"
+                                style="margin-bottom: 12px; font-size: 0.9rem; width: 100%; box-sizing: border-box;">
+                            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                <input type="file" id="profilePicFileInput" accept="image/*" style="display: none;">
+                                <button type="button" class="btn btn--outline"
+                                    onclick="document.getElementById('profilePicFileInput').click()"
+                                    style="padding: 8px 16px; font-size: 0.9rem;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        style="margin-right: 4px;">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    Upload Image
+                                </button>
+                                <button type="button" class="btn btn--primary" onclick="saveProfilePic()"
+                                    style="padding: 8px 16px; font-size: 0.9rem;">
+                                    Save Changes
+                                </button>
+                                <span id="profilePicFileName" class="file-name"
+                                    style="font-size: 0.85rem; color: var(--text-secondary); margin-left: auto;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalStories">0</div>
+                        <div class="stat-label">Total Stories</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalViews">0</div>
+                        <div class="stat-label">Total Views</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-actions">
+                    <button class="btn btn--primary" onclick="openStoryModalFromDashboard()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Add New Story
+                    </button>
+                    <button class="btn btn--outline" onclick="loadStories()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 4 23 10 17 10" />
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                        </svg>
+                        Refresh Data
+                    </button>
+                </div>
+
+                <div class="recent-stories">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        Recent Stories
+                    </h3>
+                    <div class="stories-list" id="recentStoriesList">
+                        <!-- Stories will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+
+    <!-- Configuration & Scripts -->
+    <script src="config.js"></script>
+    <script type="module" src="script.js"></script>
+    <script src="stories.js"></script>
+</body>
+
+
+
+</html>
