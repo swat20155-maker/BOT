@@ -10,7 +10,7 @@ const config = {
 
   // Admin Configuration
   admin: {
-    password: "lemo"
+    password: "gold"
   }
 };
 
