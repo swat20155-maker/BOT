@@ -258,3 +258,39 @@ document.addEventListener('DOMContentLoaded', function () {
 // Global exports
 window.toggleThemeMenu = toggleThemeMenu;
 window.changeTheme = changeTheme;
+// ── Delete Story Function ──
+window.deleteStory = async function(storyId) {
+    // 1. طلب تأكيد من المستخدم قبل الحذف
+    if (!confirm("هل أنت متأكد من حذف هذا الستوري؟ 🗑️")) return;
+
+    try {
+        // 2. إنشاء نسخة من الـ API لإرسال الطلب
+        const api = new IlluxatAPI();
+        
+        // 3. استدعاء دالة الحذف (تأكد أن الدالة اسمها delete في ملف illuxat-api.js)
+        // إذا كان اسم الدالة مختلف في ملف الـ API قم بتعديله هنا
+        const response = await api.deleteStory(storyId); 
+
+        if (response && !response.error) {
+            alert("تم حذف الستوري بنجاح! ✅");
+            
+            // 4. إخفاء العنصر من الشاشة فوراً دون إعادة تحميل الصفحة
+            const storyElement = document.getElementById(`story-item-${storyId}`) || 
+                               document.querySelector(`[onclick*="${storyId}"]`).closest('.story-item-dashboard');
+            
+            if (storyElement) {
+                storyElement.style.transform = 'scale(0.8)';
+                storyElement.style.opacity = '0';
+                setTimeout(() => storyElement.remove(), 300);
+            } else {
+                location.reload(); // إذا لم نجد العنصر نحدث الصفحة
+            }
+        } else {
+            console.error("خطأ من السيرفر:", response.error);
+            alert("حدث خطأ أثناء الحذف: " + (response.error || "خطأ غير معروف"));
+        }
+    } catch (error) {
+        console.error("فشل تنفيذ عملية الحذف:", error);
+        alert("Error deleting story. Please try again! ❌");
+    }
+};
