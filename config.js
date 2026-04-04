@@ -1,12 +1,12 @@
 const config = {
   firebase: {
-    apiKey: "AIzaSyA8FxTP0_ue_tnE2hF9kJzHdlC575ePo-I",
-    authDomain: "lemo-profile-stories.firebaseapp.com",
-    projectId: "lemo-profile-stories",
-    storageBucket: "lemo-profile-stories.firebasestorage.app",
-    messagingSenderId: "1039102929805",
-    appId: "1:1039102929805:web:b216a60a3571d8cc37abc4"
-  },
+  apiKey: "AIzaSyD_nXCUXszrP55faMO2hV2Cor0n5DLlLxg",
+  authDomain: "aqeel-41ae7.firebaseapp.com",
+  projectId: "aqeel-41ae7",
+  storageBucket: "aqeel-41ae7.firebasestorage.app",
+  messagingSenderId: "1036364225484",
+  appId: "1:1036364225484:web:a9426f21d3f105b45d5b69"
+}
 
   // Admin Configuration
   admin: {
