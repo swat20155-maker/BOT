@@ -62,7 +62,13 @@ function loadRecentStories() {
 function createDashboardStoryElement(story, index) {
   const storyDiv = document.createElement('div');
   storyDiv.className = 'story-item-dashboard';
+window.deleteStory = function(id) {
+  console.log("Delete clicked:", id);
+};
 
+window.toggleStoryVisibility = function(id, isVisible) {
+  console.log("Toggle clicked:", id, isVisible);
+};
   // Check visibility (default to true if undefined for legacy stories)
   const isVisible = story.isVisible !== false;
 
