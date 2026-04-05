@@ -331,7 +331,7 @@ async function addStory(title, content, imageUrl = null, videoUrl = null) {
 
   const finalImage = imageUrl || (videoInfo && videoInfo.thumbnail) || null;
 
-  const story = {
+  onst story = {};
     title: title,
     content: content,
     imageUrl: finalImage,
