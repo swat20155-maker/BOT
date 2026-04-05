@@ -6,7 +6,7 @@ const config = {
   storageBucket: "aqeel-41ae7.firebasestorage.app",
   messagingSenderId: "1036364225484",
   appId: "1:1036364225484:web:a9426f21d3f105b45d5b69"
-}
+},
 
   // Admin Configuration
   admin: {
