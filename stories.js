@@ -221,10 +221,10 @@ function verifyAdminPasswordForGear() {
     sessionStorage.setItem('lemoAdminSession', 'true');
     closeAdminLoginModal();
     showNotification('Admin access granted! Welcome back! 🔓');
-}
 
     updateGearIcon();
     renderStories();
+
   } else {
     showNotification('Incorrect password! Please try again! ❌');
     document.getElementById('adminPasswordInput').value = '';
