@@ -830,7 +830,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('storyForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const title = document.getElementById('storyTitle').value.trim();
+   const title = document.getElementById('storyTitle')?.value?.trim() || '';
     const content = document.getElementById('storyContent').value.trim();
     const imageUrl = document.getElementById('storyImage').value.trim();
     const videoUrl = document.getElementById('storyVideo').value.trim();
