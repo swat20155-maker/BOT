@@ -216,11 +216,12 @@ function closeAdminLoginModal() {
 function verifyAdminPasswordForGear() {
   const inputPassword = document.getElementById('adminPasswordInput').value;
 
-  if (inputPassword === adminPassword) {
+  if (inputPassword === config.admin.password) {
     isAdmin = true;
     sessionStorage.setItem('lemoAdminSession', 'true');
     closeAdminLoginModal();
     showNotification('Admin access granted! Welcome back! 🔓');
+}
 
     updateGearIcon();
     renderStories();
