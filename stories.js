@@ -331,17 +331,18 @@ async function addStory(title, content, imageUrl = null, videoUrl = null) {
 
   const finalImage = imageUrl || (videoInfo && videoInfo.thumbnail) || null;
 
-  const story = {};
-    title: title,
-    content: content,
-    imageUrl: finalImage,
-    videoUrl: videoUrl,
-    videoInfo: videoInfo,
-    timestamp: new Date().toLocaleDateString(),
-    views: 0,
-    isVisible: true, // NEW: Default visibility
-    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-  };
+  const story = {
+  title: title,
+  content: content,
+  imageUrl: finalImage || null,
+  mediaUrl: videoUrl || null,
+  mediaType: videoUrl ? 'video' : 'image',
+  videoInfo: videoInfo || null,
+  timestamp: new Date().toLocaleDateString(),
+  views: 0,
+  isVisible: true,
+  createdAt: firebase.firestore.FieldValue.serverTimestamp()
+};
 
   try {
   const cleanStory = {};
