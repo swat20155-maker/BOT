@@ -224,7 +224,6 @@ function verifyAdminPasswordForGear() {
 
     updateGearIcon();
     renderStories();
-
   } else {
     showNotification('Incorrect password! Please try again! ❌');
     document.getElementById('adminPasswordInput').value = '';
