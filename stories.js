@@ -455,11 +455,29 @@ function createStoryElement(story, index) {
 
   let storyImage = (story.imageUrl) || ((story.videoInfo && story.videoInfo.thumbnail) ? story.videoInfo.thumbnail : currentProfilePic);
 
-  storyDiv.innerHTML = `
-    <img src="${storyImage}" alt="${story.title}" class="story-image" onerror="this.src='${currentProfilePic}'">
-    <div class="story-profile">
-      <img src="${currentProfilePic}" alt="Profile">
-    </div>
+  let mediaHTML = '';
+
+if (story.mediaType === 'video' && story.mediaUrl) {
+  mediaHTML = `
+    <video class="story-image" controls>
+      <source src="${story.mediaUrl}" type="video/mp4">
+    </video>
+  `;
+} else {
+  let storyImage = story.imageUrl || currentProfilePic;
+
+  mediaHTML = `
+    <img src="${storyImage}" alt="${story.title}" class="story-image"
+    onerror="this.src='${currentProfilePic}'">
+  `;
+}
+
+storyDiv.innerHTML = `
+  ${mediaHTML}
+  <div class="story-profile">
+    <img src="${currentProfilePic}" alt="Profile">
+  </div>
+`;
     
     ${isHidden ? `<div class="story-badge-hidden"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>` : ''}
 
