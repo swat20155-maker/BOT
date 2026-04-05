@@ -345,16 +345,27 @@ async function addStory(title, content, imageUrl = null, videoUrl = null) {
   };
 
   try {
-    const docRef = await db.collection('stories').add(story);
-    story.id = docRef.id;
-    stories.unshift(story);
-    renderStories();
-    closeStoryModal();
-    showNotification('Story added successfully! ✨');
-  } catch (error) {
-    console.error('Error adding story:', error);
-    showNotification('Error adding story. Please try again! ❌');
+  const cleanStory = {};
+
+  for (let key in story) {
+    if (story[key] !== undefined && story[key] !== "") {
+      cleanStory[key] = story[key];
+    }
   }
+
+  const docRef = await db.collection('stories').add(cleanStory);
+
+  cleanStory.id = docRef.id;
+
+  stories.unshift(cleanStory);
+  renderStories();
+  closeStoryModal();
+  showNotification('Story added successfully! ✨');
+
+} catch (error) {
+  console.error('Error adding story:', error);
+  showNotification('Error adding story. Please try again! ❌');
+}
 }
 
 // Toggle Story Visibility
