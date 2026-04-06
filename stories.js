@@ -9,6 +9,8 @@ let adminPassword = config.admin.password;
 
 // Variables to store uploaded files and generated thumbnail
 
+const imageUrl = document.getElementById('storyImage').value.trim();
+const videoUrl = document.getElementById('storyVideo').value.trim();
 // Profile picture functionality
 let currentProfilePic = 'https://xatimg.com/image/mO5k7dwmDweI.jpg';
 let uploadedProfilePicData = null;
