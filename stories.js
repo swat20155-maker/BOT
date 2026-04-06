@@ -1015,3 +1015,40 @@ async function generateAutoThumbnail(videoFile) {
     }, 3000);
   }
 }
+async function uploadToImageKit(file) {
+  const url = "https://upload.imagekit.io/api/v1/files/upload";
+
+  const publicKey = "public_oFJEva+PCLm663RvLApHf8dU1wc=";
+
+  // تحويل المفتاح إلى Base64
+  const base64Key = btoa(publicKey + ":");
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("fileName", file.name);
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Basic ${base64Key}`
+      },
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.url) {
+      return data.url;
+    } else {
+      console.error("Upload error:", data);
+      alert("فشل رفع الملف ❌");
+      return null;
+    }
+
+  } catch (error) {
+    console.error("Upload failed:", error);
+    alert("خطأ بالاتصال ❌");
+    return null;
+  }
+}
