@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Global exports
 window.toggleThemeMenu = toggleThemeMenu;
 window.changeTheme = changeTheme;
-async function uploadToImageKit(file) {
+await uploadToImageKit(imageFile);
   const url = "https://upload.imagekit.io/api/v1/files/upload";
 
   const publicKey = "public_oFJEva+PCLm663RvLApHf8dU1wc=";
